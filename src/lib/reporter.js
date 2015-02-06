@@ -49,6 +49,8 @@ var reporter = function() {
 
         console.log(src + message.red);
       }
+
+      process.exit(1);
     },
 
     flush: function() {
@@ -62,6 +64,8 @@ var reporter = function() {
 
         errorCount = 0;
         collectedData = [];
+      } else {
+        if (errorCount > 0) { process.exit(1); } 
       }
     }
   };
